@@ -45,7 +45,7 @@ function runSpotify() {
         }
         const whatSong = data.tracks.items
         for (var i = 0; i < 5; i++) {
-            console.log(`
+            const spotifyData = console.log(`
 --------------------------------------------------- 
 Artist: ${whatSong[i].artists[0].name}
 Song: ${whatSong[i].name}
@@ -83,7 +83,8 @@ Actors: ${results.Actors}
 
 function doWhatItSays() {
     fs.readFile("random.txt", "utf8", function (error, data) {
-        console.log(data);
+        const textData = data.split(",");
+        console.log(textData);
     });
 };
 
@@ -108,6 +109,6 @@ if (arg1 === "movie") {
     runOMDB();
 }
 
-if (arg1 === "do-what-it-says") {
+if (arg1 === "do") {
     doWhatItSays();
 }
