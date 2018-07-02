@@ -84,7 +84,21 @@ Actors: ${results.Actors}
 function doWhatItSays() {
     fs.readFile("random.txt", "utf8", function (error, data) {
         const textData = data.split(",");
-        console.log(textData);
+        if (textData[0] === "tweets") {
+            runTwitter(textData[1]);
+        }
+
+        if (textData[0] === "spotify") {
+            runSpotify(textData[1]);
+        }
+
+        if (textData[0] === "movie") {
+            runOMDB(textData[1]);
+        }
+
+        if (textData[0] === "do") {
+            doWhatItSays(textData[1]);
+        }
     });
 };
 
